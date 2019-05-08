@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Trung Cùi Bắp</title>
+  
+  <subtitle>Mình là một DEV. Trình thì cùi bắp nhưng lại thích viết gì đó và chém gió. :)</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://trungcuibap.github.io/"/>
+  <updated>2019-05-08T03:12:25.904Z</updated>
+  <id>https://trungcuibap.github.io/</id>
+  
+  <author>
+    <name>Trung</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Managing HTTP Sessions in a Cluster – In memory replication type</title>
+    <link href="https://trungcuibap.github.io/2019/05/08/weblogic-http-server/"/>
+    <id>https://trungcuibap.github.io/2019/05/08/weblogic-http-server/</id>
+    <published>2019-05-08T08:14:43.000Z</published>
+    <updated>2019-05-08T03:12:25.904Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Mot-so-luu-y-khi-cau-hinh-Http-Sesssion-trong-Weblogic-Cluster"><a href="#Mot-so-luu-y-khi-cau-hinh-Http-Sesssion-trong-Weblogic-Cluster" class="headerlink" title="Một số lưu ý khi cấu hình Http Sesssion trong Weblogic Cluster."></a>Một số lưu ý khi cấu hình Http Sesssion trong Weblogic Cluster.</h2><ul><li><p>HTTP Session in a Cluster Weblogic gồm có 2 loại:</p><ol><li>In Memory Replication<ul><li>Thông qua memory</li></ul></li><li>JDBC (Database) Replication<ul><li>Thông qua database</li></ul></li></ol></li><li><p>Để một ứng dụng chạy Replication Http Session thì bạn cần cấu hình ở 2 phía. </p><ol><li>Application Server.</li><li>Ứng dụng đang chạy. Cụ thể là java code </li></ol></li><li><p>Điều kiện:</p><ol><li>Cài đặt Weblogic Server 12c</li><li>Tạo domain và tạo 2 AppServer chạy trên 1 Cluster.</li><li>Tạo một ứng dụng java nhỏ để test</li></ol></li></ul><ul><li><p>Chi tiết cấu hình như thế nào thì ở <a href="https://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/session.htm" target="_blank" rel="noopener">link này nhé</a></p></li><li><p>Mình chỉ có một số lưu ý khi Replication không hoạt động được:</p><ol><li>Phải thêm Cluster Address Trong Configuration Cluster (nếu chưa thêm)<br> <img src="https://1.bp.blogspot.com/-Rc-7RzK1fVo/W8lP4DepNnI/AAAAAAAANTM/T65DFUe9q7cPBRsGyH330m6mBcXkf6PxACLcBGAs/s400/cluster.png" alt="Cluster Address"></li><li>Edit the WEB-INF/weblogic.xml file in application file .EAR or WAR</li><li><p>Trong code java. Những object nào được lưu trong session thì phải serializable. Cách đơn giản là implements Serializable class object đó.</p><p><strong>Example:</strong></p> <figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;session-descriptor&gt;</span><br><span class="line">    &lt;persistent-store-type&gt;replicated_if_clustered&lt;/persistent-store-type&gt;</span><br><span class="line">&lt;/session-descriptor&gt;</span><br></pre></td></tr></table></figure> <figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol></li><li><p>Tạm kết</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Mot-so-luu-y-khi-cau-hinh-Http-Sesssion-trong-Weblogic-Cluster&quot;&gt;&lt;a href=&quot;#Mot-so-luu-y-khi-cau-hinh-Http-Sesssion-trong-Weblogic-Clu
+      
+    
+    </summary>
+    
+      <category term="Oracle" scheme="https://trungcuibap.github.io/categories/Oracle/"/>
+    
+      <category term="Weblogic" scheme="https://trungcuibap.github.io/categories/Oracle/Weblogic/"/>
+    
+    
+      <category term="Weblogic" scheme="https://trungcuibap.github.io/tags/Weblogic/"/>
+    
+      <category term="Oracle" scheme="https://trungcuibap.github.io/tags/Oracle/"/>
+    
+  </entry>
+  
+</feed>
