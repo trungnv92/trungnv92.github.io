@@ -123,7 +123,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>Tag: Oracle | Trung Cùi Bắp - Học cách nghĩ trước khi học cách làm. :)</title>
+    <title>Scopes trong Java Server Faces(JSF) | Trung Cùi Bắp - Học cách nghĩ trước khi học cách làm. :)</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="vi" data-spy="scroll" data-target=".list-group">
     
@@ -163,35 +163,160 @@
         <div class="main-container">
           <div class="content">
             
-<div id="tag" class="tag page">
-  <h1 class="page-title">Oracle</h1>
+<div id="post" class="page">
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/24/scopes-jsf/" itemprop="url">Scopes trong Java Server Faces(JSF)</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-24T10:45:58+07:00">05-24</time>
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://trungcuibap.github.io/2019/05/24/scopes-jsf/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Trung">
+       <meta itemprop="description" content="Vì da hơi hơi đen nên chúng bạn hay gọi là BLACK. :))">
+       <meta itemprop="image" content="/images/avatar.png">
       </span>
-      
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Trung Cùi Bắp">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Scopes trong Java Server Faces(JSF)</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-24T10:45:58+07:00">24-05-2019 10:45:58</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ADF/" itemprop="url" rel="index"><span itemprop="name">ADF</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ADF/Weblogic/" itemprop="url" rel="index"><span itemprop="name">Weblogic</span></a></span>
+        </span>
+        
+        
+        
+        
+      </div>
     </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="Cac-scope-trong-JSF-Java-Server-Faces"><a href="#Cac-scope-trong-JSF-Java-Server-Faces" class="headerlink" title="Các scope trong JSF (Java Server Faces)"></a>Các scope trong JSF (Java Server Faces)</h2><p><img src="https://2.bp.blogspot.com/--NzdGWmnTR0/WrozCxs7L8I/AAAAAAAAIBY/9lBAHwCZR_UNoQe8M-uOI3G7euJRLY7YQCLcBGAs/s320/java-server-faces-10-638.jpg" alt="JSF"></p>
+<ul>
+<li><p>Trong JSF có 6 scope cho các managed bean:</p>
+<ol>
+<li><p><strong>Application(@ApplicationScoped):</strong></p>
+<ul>
+<li>Bean này tồn tại trong suốt thời gian hoạt động của ứng dụng web. Nó được tạo khi một HTTP Request đầu tiên gửi tới bean hoặc lúc web start và thuột tính eager=true. Nó chỉ mất đi khi ứng dụng shutdown.</li>
+</ul>
+</li>
+<li><p><strong>Session(@SessionScoped):</strong></p>
+<ul>
+<li>Bean này tồn tại tương ứng với HTTP Session. Nó được tạo khi một HTTP Request đầu tiên gửi tới bean và mất đi khi Session này bị vô hiệu.</li>
+</ul>
+</li>
+<li><p><strong>View(@ViewScoped):</strong></p>
+<ul>
+<li>Bean này tồn tại trong quá trình giao tiếp trên cùng 1 view JSF trên một browser tab/window. Nó được tạo khi một HTTP Request đầu tiên gửi tới bean và mất đi khi chuyển tới một view khác hoặc tắt view hiện tại đi.</li>
+</ul>
+</li>
+<li><p><strong>Request(@RequestScoped):</strong> </p>
+<ul>
+<li>Bean này tồn tại tương ứng với chu trình request - response của ứng dụng web. Được tạo khi request gửi tới bean và mất đi khi response gửi về.</li>
+</ul>
+</li>
+<li><p><strong>None(@NoneScoped):</strong></p>
+<ul>
+<li>Loại này không được định nghĩa. Dùng trong Expression Language(EL).</li>
+</ul>
+</li>
+<li><p><strong>Custom(@CustomScoped):</strong></p>
+<ul>
+<li>Loại này do người dùng định nghĩa.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Rứa thôi</p>
+</li>
+</ul>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Java/" rel="tag"><i class="fas fa-tags"></i>Java</a>
+        
+        <a class="post-tag button" href="/tags/Oracle/" rel="tag"><i class="fas fa-tags"></i>Oracle</a>
+        
+        <a class="post-tag button" href="/tags/ADF/" rel="tag"><i class="fas fa-tags"></i>ADF</a>
+        
+      </div>
+      
+    </footer>
   </article>
   
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/08/weblogic-http-server/" itemprop="url">Managing HTTP Sessions in a Cluster – In memory replication type</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-08T15:14:43+07:00">05-08</time>
-      </span>
-      
-    </header>
-  </article>
   
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/05/08/weblogic-http-server/" rel="next" title="Managing HTTP Sessions in a Cluster – In memory replication type"><i class="fas fa-angle-left"></i><span class="nav-title">Managing HTTP Sessions in a Cluster – In memory replication type</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  
+  <div class="commentjs" id="comment-thread"></div>
+  <link rel="stylesheet" href="/css/commentjs.css">
+  <script defer type="text/javascript" src="/js/marked.min.js"></script>
+  <script defer type="text/javascript" src="/js/timeago.min.js"></script>
+  <script defer type="text/javascript" src="/js/highlight.min.js"></script>
+  <script defer type="text/javascript" src="/js/commentjs.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    getComments({
+      "type": "github",
+      "user": "trungcuibap",
+      "repo": "trungcuibap.github.io",
+      "client_id": "",
+      "client_secret": "",
+      "no_comment": "This page has no comment, go to comment now!",
+      "go_to_comment": "Go to Comment",
+      "issue_title": "Scopes trong Java Server Faces(JSF)",
+      "btn_class": "button",
+      "comments_target": "#comment-thread"
+    });
+    marked.setOptions({
+      "highlight": function (code, lang) {
+        return hljs.highlightAuto(code).value;
+      }
+    });
+    function mark() {
+      var markdowns = document.getElementsByClassName("markdown");
+      for (var i = 0; i < markdowns.length; ++i){
+        if (markdowns[i].innerHTML) {
+          markdowns[i].innerHTML = marked(markdowns[i].innerHTML);
+        }
+      }
+    }
+    window.addEventListener("DOMContentLoaded", mark, false);
+    window.addEventListener("load", mark, false);
+  });
+  </script>
+  
+  
+</div>
+
+
+
   
 </div>
 
@@ -232,6 +357,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Cac-scope-trong-JSF-Java-Server-Faces"><span class="toc-text">Các scope trong JSF (Java Server Faces)</span></a></li></ol></div>
+    </div>
+    
     
     
     <hr>

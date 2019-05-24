@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://trungcuibap.github.io/"/>
-  <updated>2019-05-08T03:12:25.904Z</updated>
+  <updated>2019-05-24T04:07:03.105Z</updated>
   <id>https://trungcuibap.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Scopes trong Java Server Faces(JSF)</title>
+    <link href="https://trungcuibap.github.io/2019/05/24/scopes-jsf/"/>
+    <id>https://trungcuibap.github.io/2019/05/24/scopes-jsf/</id>
+    <published>2019-05-24T03:45:58.000Z</published>
+    <updated>2019-05-24T04:07:03.105Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Cac-scope-trong-JSF-Java-Server-Faces"><a href="#Cac-scope-trong-JSF-Java-Server-Faces" class="headerlink" title="Các scope trong JSF (Java Server Faces)"></a>Các scope trong JSF (Java Server Faces)</h2><p><img src="https://2.bp.blogspot.com/--NzdGWmnTR0/WrozCxs7L8I/AAAAAAAAIBY/9lBAHwCZR_UNoQe8M-uOI3G7euJRLY7YQCLcBGAs/s320/java-server-faces-10-638.jpg" alt="JSF"></p><ul><li><p>Trong JSF có 6 scope cho các managed bean:</p><ol><li><p><strong>Application(@ApplicationScoped):</strong></p><ul><li>Bean này tồn tại trong suốt thời gian hoạt động của ứng dụng web. Nó được tạo khi một HTTP Request đầu tiên gửi tới bean hoặc lúc web start và thuột tính eager=true. Nó chỉ mất đi khi ứng dụng shutdown.</li></ul></li><li><p><strong>Session(@SessionScoped):</strong></p><ul><li>Bean này tồn tại tương ứng với HTTP Session. Nó được tạo khi một HTTP Request đầu tiên gửi tới bean và mất đi khi Session này bị vô hiệu.</li></ul></li><li><p><strong>View(@ViewScoped):</strong></p><ul><li>Bean này tồn tại trong quá trình giao tiếp trên cùng 1 view JSF trên một browser tab/window. Nó được tạo khi một HTTP Request đầu tiên gửi tới bean và mất đi khi chuyển tới một view khác hoặc tắt view hiện tại đi.</li></ul></li><li><p><strong>Request(@RequestScoped):</strong> </p><ul><li>Bean này tồn tại tương ứng với chu trình request - response của ứng dụng web. Được tạo khi request gửi tới bean và mất đi khi response gửi về.</li></ul></li><li><p><strong>None(@NoneScoped):</strong></p><ul><li>Loại này không được định nghĩa. Dùng trong Expression Language(EL).</li></ul></li><li><p><strong>Custom(@CustomScoped):</strong></p><ul><li>Loại này do người dùng định nghĩa.</li></ul></li></ol></li><li><p>Rứa thôi</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Cac-scope-trong-JSF-Java-Server-Faces&quot;&gt;&lt;a href=&quot;#Cac-scope-trong-JSF-Java-Server-Faces&quot; class=&quot;headerlink&quot; title=&quot;Các scope trong JS
+      
+    
+    </summary>
+    
+      <category term="ADF" scheme="https://trungcuibap.github.io/categories/ADF/"/>
+    
+      <category term="Weblogic" scheme="https://trungcuibap.github.io/categories/ADF/Weblogic/"/>
+    
+    
+      <category term="Java" scheme="https://trungcuibap.github.io/tags/Java/"/>
+    
+      <category term="Oracle" scheme="https://trungcuibap.github.io/tags/Oracle/"/>
+    
+      <category term="ADF" scheme="https://trungcuibap.github.io/tags/ADF/"/>
+    
+  </entry>
   
   <entry>
     <title>Managing HTTP Sessions in a Cluster – In memory replication type</title>
@@ -39,9 +70,9 @@
       <category term="Weblogic" scheme="https://trungcuibap.github.io/categories/Oracle/Weblogic/"/>
     
     
-      <category term="Weblogic" scheme="https://trungcuibap.github.io/tags/Weblogic/"/>
-    
       <category term="Oracle" scheme="https://trungcuibap.github.io/tags/Oracle/"/>
+    
+      <category term="Weblogic" scheme="https://trungcuibap.github.io/tags/Weblogic/"/>
     
   </entry>
   
