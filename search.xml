@@ -15,7 +15,7 @@
           
           <category> ADF </category>
           
-          <category> Weblogic </category>
+          <category> Java </category>
           
       </categories>
       
@@ -23,8 +23,6 @@
         <tags>
             
             <tag> Java </tag>
-            
-            <tag> Oracle </tag>
             
             <tag> ADF </tag>
             
@@ -53,9 +51,9 @@
       
         <tags>
             
-            <tag> Oracle </tag>
-            
             <tag> Weblogic </tag>
+            
+            <tag> Oracle </tag>
             
         </tags>
       
