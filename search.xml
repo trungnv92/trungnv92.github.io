@@ -5,15 +5,69 @@
     
     <entry>
       <title>Managing HTTP Sessions in a Cluster – In memory replication type</title>
-      <link href="/2019/05/08/weblogic-http-server/"/>
-      <url>/2019/05/08/weblogic-http-server/</url>
+      <link href="/20120/04/25/weblogic-http-server/"/>
+      <url>/20120/04/25/weblogic-http-server/</url>
       
         <content type="html"><![CDATA[<h2 id="Mot-so-luu-y-khi-cau-hinh-Http-Sesssion-trong-Weblogic-Cluster"><a href="#Mot-so-luu-y-khi-cau-hinh-Http-Sesssion-trong-Weblogic-Cluster" class="headerlink" title="Một số lưu ý khi cấu hình Http Sesssion trong Weblogic Cluster."></a>Một số lưu ý khi cấu hình Http Sesssion trong Weblogic Cluster.</h2><ul><li><p>HTTP Session in a Cluster Weblogic gồm có 2 loại:</p><ol><li>In Memory Replication<ul><li>Thông qua memory</li></ul></li><li>JDBC (Database) Replication<ul><li>Thông qua database</li></ul></li></ol></li><li><p>Để một ứng dụng chạy Replication Http Session thì bạn cần cấu hình ở 2 phía. </p><ol><li>Application Server.</li><li>Ứng dụng đang chạy. Cụ thể là java code </li></ol></li><li><p>Điều kiện:</p><ol><li>Cài đặt Weblogic Server 12c</li><li>Tạo domain và tạo 2 AppServer chạy trên 1 Cluster.</li><li>Tạo một ứng dụng java nhỏ để test</li></ol></li></ul><ul><li><p>Chi tiết cấu hình như thế nào thì ở <a href="https://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/session.htm" target="_blank" rel="noopener">link này nhé</a></p></li><li><p>Mình chỉ có một số lưu ý khi Replication không hoạt động được:</p><ol><li>Phải thêm Cluster Address Trong Configuration Cluster (nếu chưa thêm)<br> <img src="https://1.bp.blogspot.com/-Rc-7RzK1fVo/W8lP4DepNnI/AAAAAAAANTM/T65DFUe9q7cPBRsGyH330m6mBcXkf6PxACLcBGAs/s400/cluster.png" alt="Cluster Address"></li><li>Edit the WEB-INF/weblogic.xml file in application file .EAR or WAR</li><li><p>Trong code java. Những object nào được lưu trong session thì phải serializable. Cách đơn giản là implements Serializable class object đó.</p><p><strong>Example:</strong></p> <figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;session-descriptor&gt;</span><br><span class="line">    &lt;persistent-store-type&gt;replicated_if_clustered&lt;/persistent-store-type&gt;</span><br><span class="line">&lt;/session-descriptor&gt;</span><br></pre></td></tr></table></figure> <figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol></li><li><p>Tạm kết</p></li></ul>]]></content>
       
       
       <categories>
           
-          <category> reading </category>
+          <category> coding </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Weblogic </tag>
+            
+            <tag> Oracle </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Note: upgrade Jdeveloper from version 12.1.3 to 12.2.1</title>
+      <link href="/2020/04/25/Note-upgrade-Jdeveloper-from-version-12-1-3-to-12-2-1/"/>
+      <url>/2020/04/25/Note-upgrade-Jdeveloper-from-version-12-1-3-to-12-2-1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Mot-so-luu-y-khi-nang-cap-bang-jdeveloper-tu-12-1-3-len-12-2-1"><a href="#Mot-so-luu-y-khi-nang-cap-bang-jdeveloper-tu-12-1-3-len-12-2-1" class="headerlink" title="Một số lưu ý khi nâng cấp bảng jdeveloper từ 12.1.3 lên 12.2.1"></a>Một số lưu ý khi nâng cấp bảng jdeveloper từ 12.1.3 lên 12.2.1</h2><ol><li>Sử dụng java 8 thay cho java 7. Sau khi cấu hình xong, bạn phải sửa lại đường dẫn java 8 trong file<br><code>/u02/../bin/ setDomainEnv.sh</code> and <code>/u01/../fm1213/oracle_common/common/bin/commEnv.sh</code></li><li>Cấu hình Replication Http Session Cho cluster </li><li>Làm theo đúng hướng dẫn và sửa lại file java sử dụng session bằng cách implements Serializes</li><li>Bật chế độ -Dweblogic.jdbc.remoteEnabled=false-&gt;true nếu chưa bật</li></ol><p>Happy coding. =))</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> coding </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Weblogic </tag>
+            
+            <tag> Oracle </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>How to add JMX to Weblogic 12c</title>
+      <link href="/2020/04/25/How-to-add-JMX-to-Weblogic-12c/"/>
+      <url>/2020/04/25/How-to-add-JMX-to-Weblogic-12c/</url>
+      
+        <content type="html"><![CDATA[<ol><li>Stop Admin Weblogic</li><li><p>Open and Edit file setDomainEnv.sh</p> <figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">JAVA_OPTIONS=<span class="string">"$&#123;JAVA_OPTIONS&#125; </span></span><br><span class="line"><span class="string"> -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8888 </span></span><br><span class="line"><span class="string"> -Dcom.sun.management.jmxremote.ssl=false</span></span><br><span class="line"><span class="string"> -Dcom.sun.management.jmxremote.authenticate=false"</span></span><br><span class="line"> export JAVA_OPTIONS</span><br><span class="line"></span><br><span class="line"> JAVA_OPTIONS=<span class="string">"$&#123;JAVA_OPTIONS&#125;"</span></span><br><span class="line"> export JAVA_OPTIONS</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">if</span> [ <span class="string">"$SERVER_NAME"</span> == <span class="string">"AdminServer"</span> ]</span><br><span class="line"> then</span><br><span class="line">         JAVA_OPTIONS=<span class="string">"$&#123;JAVA_OPTIONS&#125; -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8888 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.access.file=jmxremote.access -Dcom.sun.management.jmxremote.password.file=jmxremote.password"</span></span><br><span class="line">         export JAVA_OPTIONS</span><br><span class="line"> </span><br><span class="line"> elif [ <span class="string">"$SERVER_NAME"</span> == <span class="string">"mwiserver1"</span> ]</span><br><span class="line"> then</span><br><span class="line">         JAVA_OPTIONS=<span class="string">"$&#123;JAVA_OPTIONS&#125; -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8889 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.access.file=jmxremote.access -Dcom.sun.management.jmxremote.password.file=jmxremote.password"</span></span><br><span class="line">         export JAVA_OPTIONS     </span><br><span class="line"> fi</span><br></pre></td></tr></table></figure></li><li><p>Start Weblogic again! Finish. </p></li></ol><p>Happy coding. =))</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> coding </category>
           
       </categories>
       
