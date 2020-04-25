@@ -147,7 +147,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>coding | Trung'Blog - Học cách hiểu trước khi học cách làm</title>
+    <title>Managing HTTP Sessions in a Cluster – In memory replication type | Trung'Blog - Học cách hiểu trước khi học cách làm</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="en" data-spy="scroll" data-target=".list-group">
     
@@ -185,18 +185,112 @@
         <div class="main-container">
           <div class="content">
             
-<div id="page" class="page">
-  <article class="article post card animate">
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://nguyenvantrung.com/2020/04/25/weblogic-http-server/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Nguyễn Văn Trung">
+       <meta itemprop="description" content="Chia sẻ vài thứ về chuyện nghề, chuyện đọc và chuyện đi.">
+       <meta itemprop="image" content="/images/avatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Trung'Blog">
+      </span>
+    </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <span>coding</span>
-      </h1>
+      <h1 class="post-title" itemprop="name headline">Managing HTTP Sessions in a Cluster – In memory replication type</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-04-25T15:14:43+07:00">25-04-2020 15:14</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/coding/" itemprop="url" rel="index"><span itemprop="name">coding</span></a></span>
+        </span>
+        
+        
+      </div>
     </header>
-    <main class="post-main">
-      
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="Mot-so-luu-y-khi-cau-hinh-Http-Sesssion-trong-Weblogic-Cluster"><a href="#Mot-so-luu-y-khi-cau-hinh-Http-Sesssion-trong-Weblogic-Cluster" class="headerlink" title="Một số lưu ý khi cấu hình Http Sesssion trong Weblogic Cluster."></a>Một số lưu ý khi cấu hình Http Sesssion trong Weblogic Cluster.</h2><ul>
+<li><p>HTTP Session in a Cluster Weblogic gồm có 2 loại:</p>
+<ol>
+<li>In Memory Replication<ul>
+<li>Thông qua memory</li>
+</ul>
+</li>
+<li>JDBC (Database) Replication<ul>
+<li>Thông qua database</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Để một ứng dụng chạy Replication Http Session thì bạn cần cấu hình ở 2 phía. </p>
+<ol>
+<li>Application Server.</li>
+<li>Ứng dụng đang chạy. Cụ thể là java code </li>
+</ol>
+</li>
+<li><p>Điều kiện:</p>
+<ol>
+<li>Cài đặt Weblogic Server 12c</li>
+<li>Tạo domain và tạo 2 AppServer chạy trên 1 Cluster.</li>
+<li>Tạo một ứng dụng java nhỏ để test</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>Chi tiết cấu hình như thế nào thì ở <a href="https://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/session.htm" target="_blank" rel="noopener">link này nhé</a></p>
+</li>
+<li><p>Mình chỉ có một số lưu ý khi Replication không hoạt động được:</p>
+<ol>
+<li>Phải thêm Cluster Address Trong Configuration Cluster (nếu chưa thêm)<br> <img src="https://1.bp.blogspot.com/-Rc-7RzK1fVo/W8lP4DepNnI/AAAAAAAANTM/T65DFUe9q7cPBRsGyH330m6mBcXkf6PxACLcBGAs/s400/cluster.png" alt="Cluster Address"></li>
+<li>Edit the WEB-INF/weblogic.xml file in application file .EAR or WAR</li>
+<li><p>Trong code java. Những object nào được lưu trong session thì phải serializable. Cách đơn giản là implements Serializable class object đó.</p>
+<p><strong>Example:</strong></p>
+ <figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;session-descriptor&gt;</span><br><span class="line">    &lt;persistent-store-type&gt;replicated_if_clustered&lt;/persistent-store-type&gt;</span><br><span class="line">&lt;/session-descriptor&gt;</span><br></pre></td></tr></table></figure>
+ <figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>Tạm kết</p>
+</li>
+</ul>
+
     </main>
-    <footer class="post-footer"></footer>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Weblogic/" rel="tag"><i class="fas fa-tags"></i>Weblogic</a>
+        
+        <a class="post-tag button" href="/tags/Oracle/" rel="tag"><i class="fas fa-tags"></i>Oracle</a>
+        
+      </div>
+      
+    </footer>
   </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2020/04/25/How-to-add-JMX-to-Weblogic-12c/" rel="prev" title="How to add JMX to Weblogic 12c"><span class="nav-title">How to add JMX to Weblogic 12c</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
   
 </div>
 
@@ -231,6 +325,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Mot-so-luu-y-khi-cau-hinh-Http-Sesssion-trong-Weblogic-Cluster"><span class="toc-text">Một số lưu ý khi cấu hình Http Sesssion trong Weblogic Cluster.</span></a></li></ol></div>
+    </div>
+    
     
     
     <hr>
