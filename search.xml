@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>4 ứng dụng web nho nhỏ bằng Python</title>
+      <link href="/2020/08/02/4-apps-python/"/>
+      <url>/2020/08/02/4-apps-python/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--L-HikvUp--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://res.cloudinary.com/practicaldev/image/fetch/s--x7Y6LLxr--/c_imagga_scale%2Cf_auto%2Cfl_progressive%2Ch_420%2Cq_auto%2Cw_1000/https://dev-to-uploads.s3.amazonaws.com/i/yv6dlem519toz5uwuh9y.jpg" alt></p><hr><p>Trong thời gian dịch covid-19, mình vừa học vừa build một số ứng dụng web sử dụng ngôn ngữ python và Django. Một phần để giết thời gian, một phần để học hỏi thêm.<br>Mình có để link source and demo bên dưới luôn nhé.</p><p><strong>1. Ebook4you - Download ebook</strong></p><ul><li>Crawler sách tự động từ trang sachvui.com.</li><li>View và download sách theo danh mục.</li><li>Đang chỉnh sửa thêm. </li><li>Demo: <a href="https://ebook4you.herokuapp.com/" target="_blank" rel="noopener">https://ebook4you.herokuapp.com/</a></li><li>Git: <a href="https://github.com/trungnv92/dj_nvtstore" target="_blank" rel="noopener">https://github.com/trungnv92/dj_nvtstore</a></li></ul><p><strong>2. Todoapp4you  - Simple notes</strong></p><ul><li>Add, edit va delete a note.</li><li>Dùng Django Rest, Javascript.</li><li>Demo: <a href="https://todoapp4you.herokuapp.com/" target="_blank" rel="noopener">https://todoapp4you.herokuapp.com/</a></li><li>Git: <a href="https://github.com/trungnv92/todo_drf" target="_blank" rel="noopener">https://github.com/trungnv92/todo_drf</a></li></ul><p><strong>3. Miquangblog - Simple Blog</strong></p><ul><li>Sign-In, Sign-Up Account.</li><li>Create, Edit, Remove Post.</li><li>Weather Api - Hiển thị realtime trên home.</li><li>Demo: <a href="https://miquangblog.herokuapp.com/" target="_blank" rel="noopener">https://miquangblog.herokuapp.com/</a></li><li>git: <a href="https://github.com/trungnv92/codingwithtrung" target="_blank" rel="noopener">https://github.com/trungnv92/codingwithtrung</a></li></ul><p><strong>4. Simple CRM</strong></p><ul><li>Quản lý Order, Products</li><li>Demo: <a href="https://trungnv-dj-crm.herokuapp.com/" target="_blank" rel="noopener">https://trungnv-dj-crm.herokuapp.com/</a></li><li>Git: <a href="https://github.com/trungnv92/dj_crm" target="_blank" rel="noopener">https://github.com/trungnv92/dj_crm</a></li></ul><p>Covid đợt 2 đang ngâm cứu mần cái gì.<br>Happy Coding =)) </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> coding </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> coding </tag>
+            
+            <tag> python </tag>
+            
+            <tag> django </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Quản lý bộ nhớ trong Java với Heap và Stack Memory</title>
       <link href="/2020/07/18/quan-ly-bo-nho-java/"/>
       <url>/2020/07/18/quan-ly-bo-nho-java/</url>
